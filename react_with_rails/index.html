@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+
+		<title>React with Ruby on Rails</title>
+
+		<meta name="description" content="React with Ruby on Rails">
+		<meta name="author" content="Maria Stokłosa">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="react_with_rails/reveal.css">
+		<link rel="stylesheet" href="react_with_rails/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="react_with_rails/zenburn.css">
+
+		<style>
+
+			.reveal pre code {
+				max-height: 550px !important;
+				width: 1000px !important;
+			}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script><link href="react_with_rails/paper.css" type="text/css" rel="stylesheet">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body style="transition: -moz-transform 0.8s ease 0s;">
+
+		<div data-background-transition="fade" data-transition-speed="default" role="application" class="reveal slide center">
+
+			<div style="width: 960px; height: 700px; left: 50%; top: 50%; bottom: auto; right: auto; transform: translate(-50%, -50%) scale(1.15457);" class="slides">
+				<section class="present" style="top: 64px; display: block;">
+					<img src="react_with_rails/react_logo.svg" style="background: none; border: none; box-shadow: none; height: 300px;">
+					<h3>React with Ruby on Rails</h3>
+					<p>
+						<small>Created by <a href="mailto:stoklosama@gmail.com">Maria Stokłosa</a> / <a href="http://twitter.com/mariastoklosa">@mariastoklosa</a></small>
+					</p>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 263.5px; display: block;" hidden="">
+					<h2>Why did I choose this topic?</h2>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 114.5px; display: block;" hidden="">
+					<h2>Historical background</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Created by Jordan Walke working at Facebook</p></li>
+						<li><p data-fragment-index="1" class="fragment">Influenced by XHP - HTML component framework for PHP</p></li>
+						<li><p data-fragment-index="2" class="fragment">First deployed on Facebook newsfeed in September 2011</p></li>
+						<li><p data-fragment-index="3" class="fragment">Open-sourced at JSConf US in May 2013</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Initial reactions of users</h2>
+					<ul>
+						<blockquote data-fragment-index="0" class="fragment" cite="https://web.facebook.com/facebook">
+							“This is absolutely the worst of the many wrong-headed 'improvements' you have made, and that's quite a feat.”
+						</blockquote>
+						<blockquote data-fragment-index="1" class="fragment" cite="http://web.facebook.com/facebook">
+							“I think Facebook's usefulness to me has now been outstripped by its lack of ease in use.“
+						</blockquote>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>General interest in React</h2>
+						<img data-fragment-index="0" class="fragment" src="react_with_rails/interest.png" style="background: none; border: none; box-shadow: none; height: 500px;">
+						<div> Time period: 1 Jan 2015 - 16 Feb 2016, Google Analytics </div>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>What React is?</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">JS library used to build UI</p></li>
+						<li><p data-fragment-index="1" class="fragment">V in MVC architectural pattern</p></li>
+						<li><p data-fragment-index="2" class="fragment">Tool developed by community, Facebook and Instagram</p></li>
+						<li><p data-fragment-index="3" class="fragment">Complete control of the loading experience because of AJAX calls</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>What React is not?</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Application framework</p></li>
+						<li><p data-fragment-index="1" class="fragment">Framework providing two-way data binding</p></li>
+						<li><p data-fragment-index="2" class="fragment">Framework having AJAX capabilities</p></li>
+						<li><p data-fragment-index="3" class="fragment">Event system provider</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Benefits of using React</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Easiness of breaking UI into component hierarchy</p></li>
+						<li><p data-fragment-index="1" class="fragment">Easiness of extending and maintaining views</p></li>
+						<li><p data-fragment-index="2" class="fragment">Providing less surface area for XSS vulnerabilities</p></li>
+						<li><p data-fragment-index="3" class="fragment">Virtual DOM</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>How to integrate Ruby on Rails with React?</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Using React inside of Rails with react-rails gem</p></li>
+						<li><p data-fragment-index="1" class="fragment">Creating React front-end application within Rails</p></li>
+						<li><p data-fragment-index="2" class="fragment">Separating Rails API and React front-end application</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<img src="react_with_rails/react_logo.svg" style="background: none; border: none; box-shadow: none; height: 100px">
+					<h2>Using React inside of Rails with react-rails gem</h2>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Using React inside of Rails with react-rails</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Simplest method</p></li>
+						<li><p data-fragment-index="1" class="fragment">Handy view helper that lets you render (and server render) react components in rails views</p></li>
+					</ul>
+				</section>
+
+				<section class="stack future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<section style="top: 330px; display: none;">
+						<h2>Using React inside of Rails with react-rails</h2>
+						<p>Define your data in the Rails controller</p>
+						<br>
+						<a href="#" class="navigate-down">
+							<img data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow" height="238" width="178">
+						</a>
+					</section>
+					<section style="top: 330px; display: none;" aria-hidden="true" class="future">
+						<h2>Using React inside of Rails with react-rails</h2>
+						<p>Controller passes data into the view helper</p>
+						<br>
+						<a href="#/2" class="navigate-down">
+							<img data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow" height="238" width="178">
+						</a>
+					</section>
+					<section style="top: 330px; display: none;" aria-hidden="true" class="future">
+						<h2>Using React inside of Rails with react-rails</h2>
+						<p>Helper passes the data as props to the React component</p>
+					</section>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Converting data to JSON format</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">ActiveModel::Serializers</p></li>
+						<li><p data-fragment-index="1" class="fragment">Jbuilder</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Using React inside of Rails with react-rails - code samples</h2>
+
+					<pre><code class="hljs asciidoc" data-trim=""># app/views/users/show.html.haml
+<span class="hljs-header">= react_component('UserShowPage', render(template: 'users/show.json.jbuilder'))</span></code></pre>
+
+					<pre><code class="hljs less" data-trim=""># <span class="hljs-tag">app</span>/<span class="hljs-tag">views</span>/<span class="hljs-tag">users</span>/<span class="hljs-tag">show</span><span class="hljs-class">.json</span><span class="hljs-class">.jbuilder</span>
+<span class="hljs-tag">json</span><span class="hljs-class">.user</span> <span class="hljs-tag">do</span>
+  <span class="hljs-tag">json</span><span class="hljs-class">.extract</span>!(<span class="hljs-variable">@user</span>, :id, :email, :description)
+<span class="hljs-tag">end</span></code></pre>
+
+					<pre><code class="hljs elixir" data-trim=""><span class="hljs-comment"># app/controllers/users_controller.rb</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show</span></span>
+  <span class="hljs-variable">@user</span> = <span class="hljs-constant">User.</span>find(params[<span class="hljs-symbol">:id</span>])
+<span class="hljs-keyword">end</span></code></pre>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Using React inside of Rails with react-rails - code samples</h2>
+
+					<pre><code class="hljs gherkin" data-trim=""><span class="hljs-comment"># app/assets/javascripts/components/users/user_show_page.js.cjsx</span>
+
+window.UserShowPage = React.createClass
+  render: -&gt;
+    <span class="hljs-variable">&lt;div&gt;</span>
+      <span class="hljs-variable">&lt;ul classname="list-unstyled"&gt;</span>
+        <span class="hljs-variable">&lt;li&gt;</span>
+          <span class="hljs-variable">&lt;b&gt;</span> Email: <span class="hljs-variable">&lt;/b&gt;</span>
+          { <span class="hljs-comment">@props.user.email }</span>
+        <span class="hljs-variable">&lt;/li&gt;</span>
+        <span class="hljs-variable">&lt;li&gt;</span>
+          <span class="hljs-variable">&lt;b&gt;</span> Description: <span class="hljs-variable">&lt;/b&gt;</span>
+          { <span class="hljs-comment">@props.user.description }</span>
+        <span class="hljs-variable">&lt;/li&gt;</span>
+      <span class="hljs-variable">&lt;/ul&gt;</span>
+    <span class="hljs-variable">&lt;/div&gt;</span></code></pre>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Using React inside of Rails with react-rails - pros</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Asset pipeline JSX compilation</p></li>
+						<li><p data-fragment-index="1" class="fragment">JS adapter that automatically mounts React components</p></li>
+						<li><p data-fragment-index="2" class="fragment">View helper for generating mount node</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Using React inside of Rails with react-rails - cons</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Data defined on Rails side for server rendering</p></li>
+						<li><p data-fragment-index="1" class="fragment">No possibility of ignoring AJAX calls with Flux when data is in store</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<img src="react_with_rails/react_logo.svg" style="background: none; border: none; box-shadow: none; height: 100px">
+					<h2>Creating React front-end application within Rails</h2>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Creating React front-end application within Rails</h2>
+					<li><p data-fragment-index="0" class="fragment">react_on_rails gem that makes setup easier</p></li>
+					<li><p data-fragment-index="1" class="fragment">Easiness of leveraging npm modules and using ES6 in project</p></li>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Creating React front-end application within Rails - pros</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Completely separates out the front-end</p></li>
+						<li><p data-fragment-index="1" class="fragment">Feels like having complete JavaScript MVC</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Creating React front-end application within Rails - cons</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Most complicated approach for people that want to start learning React</p></li>
+						<li><p data-fragment-index="1" class="fragment">Setting up server-side rendering destroys the beauty of front-end separation</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<img src="react_with_rails/react_logo.svg" style="background: none; border: none; box-shadow: none; height: 100px">
+					<h2>Separating Rails API and React front-end application</h2>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Separating Rails API and React front-end application</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Having 2 separate applications: one for backend and one for frontend</p></li>
+						<li><p data-fragment-index="1" class="fragment">Involves Rails API serving data</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Separating Rails API and React front-end application - pros</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Code separation is nice conceptually</p></li>
+						<li><p data-fragment-index="1" class="fragment">Easiness of switching into other type of backend</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Separating Rails API and React front-end application - cons</h2>
+					<ul>
+						<li><p data-fragment-index="0" class="fragment">Server rendering becomes more complicated</p></li>
+						<li><p data-fragment-index="1" class="fragment">Difficulty of maintaining 2 servers with 2 applications</p></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<h2>Follow up</h2>
+					<ul>
+						<li data-fragment-index="0" class="fragment"><a href="https://www.airpair.com/reactjs/posts/reactjs-a-guide-for-rails-developers"> First approach </a></li>
+						<li data-fragment-index="1" class="fragment"><a href="http://www.railsonmaui.com/blog/2014/10/03/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/"> Second approach </a></li>
+						<li data-fragment-index="2" class="fragment"><a href="http://fancypixel.github.io/blog/2015/01/28/react-plus-flux-backed-by-rails-api/"> Third approach </a></li>
+						<li data-fragment-index="3" class="fragment"><a href="http://www.stridenyc.com/blog/coming-to-react-from-angular/"> From Angular to React </a></li>
+						<li data-fragment-index="4" class="fragment"><a href="http://blog.andrewray.me/reactjs-for-stupid-people/"> ReactJS for stupid people </a></li>
+					</ul>
+				</section>
+
+				<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+					<img src="react_with_rails/react_logo.svg" style="background: none; border: none; box-shadow: none; height: 100px">
+					<h1>THE END - Q &amp; A</h1>
+
+					<p>
+						<small>
+							Maria Stokłosa<br>
+							twitter: <a href="http://twitter.com/mariastoklosa">@mariastoklosa</a><br>
+							github: <a href="http://github.com/marysieek">marysieek</a><br>
+							e-mail: <a href="mailto:stoklosama@gmail.com">stoklosama@gmail.com</a>
+						</small>
+					</p>
+				</section>
+
+
+			</div>
+
+		<div class="backgrounds"><div data-loaded="true" style="display: block;" class="slide-background present"></div><div data-loaded="true" style="display: block;" class="slide-background future"></div><div data-loaded="true" style="display: block;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background stack future"><div style="display: none;" class="slide-background present"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div><div style="display: none;" class="slide-background future"></div></div><div style="display: block;" class="progress"><span style="width: 0px;"></span></div><aside style="display: block;" class="controls"><button class="navigate-left" aria-label="previous slide"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide"></button><button class="navigate-down" aria-label="below slide"></button></aside><div style="display: none;" class="slide-number"></div><div data-prevent-swipe="" class="speaker-notes"></div><div class="pause-overlay"></div><div aria-atomic="true" aria-live="polite" id="aria-status-div" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">
+					
+					React with Ruby on Rails
+					
+						Created by Maria Stokłosa / @mariastoklosa
+					
+				</div></div>
+
+		<script src="react_with_rails/head.js"></script>
+		<script src="react_with_rails/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script><script src="react_with_rails/highlight.js" type="text/javascript"></script><script src="react_with_rails/zoom.js" type="text/javascript"></script><script src="react_with_rails/notes.js" type="text/javascript"></script>
+
+	
+
+</body></html>

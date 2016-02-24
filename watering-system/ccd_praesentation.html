@@ -1,0 +1,142 @@
+<html>
+<head>
+    <title>Clean Code Development</title>
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/akra.css" id="theme">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section>
+                <h1>Clean Code Development</h1>
+                <h2>Gabriel Jacobsohn</h2>
+            </section>
+
+        	<section>
+				<img src="img/akra-logo.gif"/>
+				<h3>We implement successful software and consultancy projects</h3>
+				<p>
+					<p>We support small enterprises and major corporations in the areas of software development, IT infrastructure, project management and process management.</p>
+				</p>
+			</section>
+            <section>
+				<h2>Was ist CCD?</h2>
+			    <aside class="notes">
+					<ul>
+						<li>Regelsammlung</li>
+						<li>Die man lernen muss</li>
+						<li>Noch wichtiger Leben!!!</li>
+						<li>Es geht um das Bewusstsein bei der Entwicklung</li>
+					</ul>
+				</aside>
+            </section>
+
+            <section>
+                <section>
+                    <h2 style="text-wrap: none">Professionalit&auml;t</h2>
+                    <h2>= Prinzipien + Bewusstheit</h2>
+					
+					<aside class="nodes">
+						Sehr wichtige Definiton
+					</aside>
+                 </section>
+                <section>
+                    <h2>Definition: Prinzip</h2>
+                    <blockquote>feste Regel, die jemand zur Richtschnur seines Handelns macht, durch die er sich in seinem Denken und Handeln leiten l&auml;sst;*</blockquote>
+                                <small>* Duden</small>
+                </section>
+                <section>
+                       <h2>Definition Bewusstheit</h2>
+                         <blockquote>Zustand, in dem man sich einer Sache bewusst ist; deutliches Wissen von etwas, Gewissheit*</blockquote>
+                  <small>* Duden</small>
+                </section>
+            </section>
+
+            <section>
+                <h2>Das CCD Wertesystem</h2>
+				<h2>(Das Zielvieleck)</h2>
+                <ul>
+                    <li class="fragment fade-in">Evolvierbarkeit</li>
+                    <li class="fragment fade-in">Korrektheit</li>
+                    <li class="fragment fade-in">Produktionseffizienz</li>
+                    <li class="fragment fade-in">Reflexion</li>
+                </ul>				
+            </section>
+			
+			<section>
+				<h1>Meine TOP 10 Regeln</h1>
+			</section>
+			<section>
+				<h1>DRY</h1>
+				<table>
+				<tr>
+				<td>Evolvierbarkeit</td><td>Korrektheit</td><td>Produktionseffizienz</td><td>Reflexion</td>			
+				</tr>
+				<tr>
+				<td>++</td><td>++</td><td>+</td><td>+</td>			
+				</tr>
+				</table>
+				<aside class="node">
+					Nur mit Test wirklich möglich -> Nicht immer anwenden.
+				</aside>
+			</section>
+			<section>
+				<h1>KISS</h1>
+				<aside class="node">
+					Keine Programmer-Madness bekommen
+				</aside>
+			</section>
+			
+			<section>
+				<h1>Offen für Erweiterungen, geschlossen für Veränderungen</h1>
+				Funktionen und Klassen dürfen erweitert werden, aber nicht ver&auml;ndert werde.
+			</section>
+			<section>
+				<h2>Offen für Erweiterungen, geschlossen für Veränderungen</h2>
+				
+				<pre><code>
+					class Person(models.Model)
+					def fak(n):
+					"""
+						>>> fak(1)
+						1
+						>>> fak(3)
+						6
+					"""
+					return 1 if n<=1 else n * fak(n-1)					
+				</code></pre>
+				Fakultät bis 5 soll aus geschwindigkeits gründen immer 12 ausgeben werdem
+			</section>
+			<section>
+				<h2>Offen für Wrweiterungen, geschlossen für Veränderungen</h2>
+				<pre><code>
+					def fak(n, optimized<div class="fragment fade-in"> = false</div>):
+					"""
+						>>> fak(1)
+						1
+						>>> fak(3)
+						6
+						>>> fak(3, True)
+						12
+					"""
+					(n_value, return_value) = (5,12) if optimized else (1,1)
+					if n<=n_value: 
+						return return_values
+					else:
+						return n * fak(n-1)					
+				</code></pre>
+			</section>
+    </div>
+
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+        // Required, even if empty.
+        Reveal.initialize({
+        });
+    </script>
+
+</body>
+</html>
